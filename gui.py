@@ -6,6 +6,15 @@ class TicTacToeGUI:
         self.root = root
         self.root.title("Tic Tac Toe")
         
+        # Center the window
+        window_width = 300
+        window_height = 350
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x_position = (screen_width - window_width) // 2
+        y_position = (screen_height - window_height) // 2
+        self.root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
+        
         self.board = [[" " for _ in range(3)] for _ in range(3)]
         self.symbols = {"Player 1": "X", "Player 2": "O"}
         self.current_player = "Player 1"
@@ -24,7 +33,8 @@ class TicTacToeGUI:
     def make_move(self, row, col):
         if self.board[row][col] == " ":
             self.board[row][col] = self.symbols[self.current_player]
-            self.buttons[row][col].config(text=self.symbols[self.current_player])
+            color = "black" if self.symbols[self.current_player] == "X" else "red"
+            self.buttons[row][col].config(text=self.symbols[self.current_player], fg=color)
             
             if self.check_winner():
                 messagebox.showinfo("Game Over", f"{self.current_player} wins!")
@@ -60,7 +70,7 @@ class TicTacToeGUI:
         for r in range(3):
             for c in range(3):
                 self.board[r][c] = " "
-                self.buttons[r][c].config(text=" ")
+                self.buttons[r][c].config(text=" ", fg="black")
         self.current_player = "Player 1"
 
 if __name__ == "__main__":

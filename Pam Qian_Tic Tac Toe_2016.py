@@ -1,4 +1,4 @@
-# Pam Qian 2016 Fall CS 112 Python Midterm Project II
+# Pam Qiana 2016 Fall CS 112 Python Midterm Project II
 # Tic Tack Toe 
 
 def main():
@@ -27,7 +27,7 @@ def intro():
 
 
 def create_grid():
-# This function creates a blank playboard
+# This function creates a blank play-board
     print("Here is the play_board: ")
     board = [[" ", " ", " "],
              [" ", " ", " "],
@@ -158,7 +158,7 @@ def isWinner(board, symbol_1, symbol_2, count):
             winner = False
             print("Player " + symbol_2 + ", you won!")
 
-    # Check the diagnoals
+    # Check the diagonals
     if board[0][0] == board[1][1] == board[2][2] == symbol_1:
         winner = False 
         print("Player " + symbol_1 + ", you won!")
